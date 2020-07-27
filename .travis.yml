@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+  - node
+cache: yarn
+install:
+  - yarn install
+script:
+  - yarn lint
+  - yarn run test:coverage -- --coverageReporters=lcov
+  - cat ./coverage/lcov.info | yarn run coveralls
+
+branches:
+  only:
+    - master
