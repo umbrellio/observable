@@ -7,7 +7,7 @@
   "license": "MIT",
   "homepage": "https://github.com/umbrellio/observable",
   "main": "dist/observable.cjs.js",
-  "modules": "dist/observable.es.js",
+  "module": "dist/observable.es.js",
   "unpkg": "dist/observable.iife.js",
   "scripts": {
     "build": "rollup -c",
