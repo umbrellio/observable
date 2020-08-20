@@ -121,3 +121,20 @@ class List extends React.Component {
   }
 }
 ```
+
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/umbrellio/observable.
+
+## License
+
+Released under MIT License.
+
+## Authors
+
+Created by [Aleksei Bespalov](https://github.com/nulldef),
+inspired by idea of [Aleksandr Komarov](https://github.com/akxcv).
+
+<a href="https://github.com/umbrellio/">
+<img style="float: left;" src="https://umbrellio.github.io/Umbrellio/supported_by_umbrellio.svg" alt="Supported by Umbrellio" width="439" height="72">
+</a>

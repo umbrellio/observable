@@ -1,6 +1,6 @@
 {
   "name": "@umbrellio/observable",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Observable library",
   "repository": "git@github.com:umbrellio/observable.git",
   "author": "Aleksei Bespalov <nulldefiner@gmail.com>",
@@ -17,26 +17,26 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.10.5",
-    "@babel/core": "^7.10.5",
+    "@babel/core": "^7.11.1",
     "@babel/plugin-proposal-class-properties": "^7.10.4",
     "@babel/plugin-transform-react-jsx": "^7.10.4",
-    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-env": "^7.11.0",
     "babel-eslint": "^10.1.0",
     "coveralls": "^3.1.0",
-    "enzyme-adapter-react-16": "^1.15.2",
-    "eslint": "^7.5.0",
+    "enzyme-adapter-react-16": "^1.15.3",
+    "eslint": "^7.7.0",
     "eslint-config-umbrellio": "^5.0.1",
     "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jest": "^23.18.2",
+    "eslint-plugin-jest": "^23.20.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prefer-object-spread": "^1.2.1",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-react": "^7.20.4",
-    "jest": "^26.1.0",
+    "eslint-plugin-react": "^7.20.6",
+    "jest": "^26.4.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "rollup": "^2.23.0",
+    "rollup": "^2.26.4",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-node-resolve": "^5.2.0"
   },
@@ -44,7 +44,7 @@
     "react": "^16.13.1"
   },
   "dependencies": {
-    "babel-jest": "^26.1.0",
+    "babel-jest": "^26.3.0",
     "enzyme": "^3.11.0"
   }
 }
