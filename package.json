@@ -21,6 +21,8 @@
     "@babel/plugin-proposal-class-properties": "^7.10.4",
     "@babel/plugin-transform-react-jsx": "^7.10.4",
     "@babel/preset-env": "^7.11.0",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-node-resolve": "^11.2.1",
     "babel-eslint": "^10.1.0",
     "coveralls": "^3.1.0",
     "enzyme-adapter-react-16": "^1.15.3",
@@ -36,9 +38,7 @@
     "jest": "^26.4.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "rollup": "^2.26.4",
-    "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-node-resolve": "^5.2.0"
+    "rollup": "^2.26.4"
   },
   "peerDependencies": {
     "react": "^16.13.1"

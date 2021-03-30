@@ -1,14 +1,12 @@
-import babel from "rollup-plugin-babel"
-import resolve from "rollup-plugin-node-resolve"
+import { babel } from "@rollup/plugin-babel"
+import { nodeResolve } from "@rollup/plugin-node-resolve"
 
 const shared = {
   input: "src/index.js",
   external: ["react"],
   plugins: [
-    resolve({
-      customResolveOptions: {
-        moduleDirectory: "node_modules",
-      },
+    nodeResolve({
+      moduleDirectories: ["node_modules"],
     }),
     babel({
       exclude: "node_modules/**",
