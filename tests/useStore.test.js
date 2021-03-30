@@ -1,6 +1,7 @@
 import React from "react"
 import Adapter from "enzyme-adapter-react-16"
 import { configure, mount } from "enzyme"
+import { act } from "react-dom/test-utils"
 
 import { observable, useStore } from "../src"
 
@@ -23,12 +24,14 @@ describe("useStore hook", () => {
   })
 
   beforeEach(() => {
-    store.reset()
+    act(() => store.reset())
   })
 
   it("keeps track of given store", () => {
     const component = mount(<TestComponent />)
     expect(component.html()).toEqual("<pre>{\"value\":3}</pre>")
+
+    act(() => store.set({ key: 4 }))
 
     setTimeout(() => {
       expect(component.html()).toEqual("<pre>{\"value\":4}</pre>")
@@ -40,7 +43,7 @@ describe("useStore hook", () => {
     const component = mount(<TestComponentWithMapping />)
     expect(component.html()).toEqual("<pre>{\"square\":9}</pre>")
 
-    store.set({ key: 4 })
+    act(() => store.set({ key: 4 }))
 
     setTimeout(() => {
       expect(component.html()).toEqual("<pre>{\"square\":16}</pre>")
