@@ -4,7 +4,7 @@ module.exports = {
   bail: 1,
   coverageDirectory: "coverage",
   collectCoverageFrom: ["**/src/**"],
-  coverageReporters: ["text", "html"],
+  coverageReporters: ["text", "html", "lcov"],
   coverageThreshold: {
     global: {
       branches: 100,
