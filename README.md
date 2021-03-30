@@ -11,10 +11,10 @@ $ yarn add @umbrellio/observable
 
 ## Usage
 
-The library contains of 3 parts - `observable`, `observer` and `multipleObserver`.
+The library contains of 4 parts - `observable`, `observer`, `multipleObserver` and `useStore`.
 
 ```js
-import { observable, observer, multipleObserver } from "@umbrellio/observable"
+import { observable, observer, multipleObserver, useStore } from "@umbrellio/observable"
 ```
 
 ### Structures
@@ -42,6 +42,10 @@ type ObserverOptions = {
 type MultipleObserverOptionItem = {
   store: ObservableStore, // store object
   key: String, // property name
+  map: (State => Object)?, // function for mapping state
+}
+
+type UseStoreOptions = {
   map: (State => Object)?, // function for mapping state
 }
 ```
@@ -119,6 +123,24 @@ class List extends React.Component {
       </React.Fragment>
     )
   }
+}
+```
+
+### `useStore`
+
+React hook that keeps track of the observable store.
+
+```js
+useStore(store: ObservableStore, options: UseStoreOptions): State
+```
+
+```js
+import { useStore } from "@umbrellio/observable"
+
+const List = () => {
+  const categories = useStore(listStore, { map: state => state.list })
+
+  return <ul>{categories.map(item => <li>{item}</li>)}</ul>
 }
 ```
 
