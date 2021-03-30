@@ -1,7 +1,7 @@
 # @umbrellio/observable
 
 [![Coverage Status](https://coveralls.io/repos/github/umbrellio/observable/badge.svg?branch=master)](https://coveralls.io/github/umbrellio/observable?branch=master)
-[![Build Status](https://travis-ci.com/umbrellio/observable.svg?branch=master)](https://travis-ci.com/umbrellio/observable)
+[![Build Status](https://github.com/umbrellio/observable/actions/workflows/ci.yml/badge.svg)](https://github.com/umbrellio/observable)
 
 ## Install
 
