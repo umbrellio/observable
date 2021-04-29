@@ -6,7 +6,8 @@ const observer = (store, { key, map }) => WrappedComponent => {
 
     state = { ...store.getState() }
 
-    componentDidMount () {
+    constructor (props) {
+      super(props)
       this.unsubscribe = store.subscribe(data => this.setState(data))
     }
 
