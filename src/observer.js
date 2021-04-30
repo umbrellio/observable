@@ -5,14 +5,20 @@ const observer = (store, { key, map }) => WrappedComponent => {
     static displayName = `${key} State Observer`
 
     state = { ...store.getState() }
+    mounted = false
 
-    constructor (props) {
-      super(props)
-      this.unsubscribe = store.subscribe(data => this.setState(data))
+    componentDidMount () {
+      this.mounted = true
+      this.unsubscribe = store.subscribe(data => {
+        this.mounted && this.setState(data)
+      })
+      this.setState({ ...store.getState() })
     }
 
     componentWillUnmount () {
       this.unsubscribe()
+      this.unsubscribe = null
+      this.mounted = false
     }
 
     render () {
