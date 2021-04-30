@@ -1,10 +1,14 @@
 import React from "react"
 
 const multipleObserver = stores => WrappedComponent => {
+  const reduceStates = stores => {
+    return stores.reduce((acc, { key, store }) => ({ ...acc, [key]: { ...store.getState() } }), {})
+  }
+
   return class extends React.Component {
     static displayName = `${stores.map(s => s.key).join(" ")} State Observer`
 
-    state = stores.reduce((acc, { key, store }) => ({ ...acc, [key]: { ...store } }), {})
+    state = reduceStates(stores)
     mounted = false
 
     componentDidMount () {
@@ -12,10 +16,12 @@ const multipleObserver = stores => WrappedComponent => {
       this.unsubscribes = stores.map(({ key, store }) => store.subscribe(data => {
         this.mounted && this.setState({ [key]: data })
       }))
+      this.setState(reduceStates(stores))
     }
 
     componentWillUnmount () {
       this.unsubscribes.forEach(fn => fn())
+      this.unsubscribes = []
       this.mounted = false
     }
 
