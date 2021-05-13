@@ -16,7 +16,7 @@ const observer = (store, { key, map }) => WrappedComponent => {
     }
 
     componentWillUnmount () {
-      this.unsubscribe()
+      this.unsubscribe && this.unsubscribe()
       this.unsubscribe = null
       this.mounted = false
     }
