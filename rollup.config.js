@@ -9,6 +9,7 @@ const shared = {
       moduleDirectories: ["node_modules"],
     }),
     babel({
+      babelHelpers: "bundled",
       exclude: "node_modules/**",
     }),
   ],
