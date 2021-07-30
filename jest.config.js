@@ -15,7 +15,6 @@ module.exports = {
   },
   moduleDirectories: ["node_modules"],
   moduleFileExtensions: ["js"],
-  notify: false,
   resetMocks: true,
   testEnvironment: "jsdom",
   testMatch: [
