@@ -4,6 +4,11 @@ import { nodeResolve } from "@rollup/plugin-node-resolve"
 const shared = {
   input: "src/index.js",
   external: ["react"],
+  output: {
+    globals: {
+      react: "React",
+    },
+  },
   plugins: [
     nodeResolve({
       moduleDirectories: ["node_modules"],
@@ -19,6 +24,7 @@ const config = [
   ({ ...shared,
     ...{
       output: {
+        ...shared.output,
         file: "dist/observable.cjs.js",
         format: "cjs",
       },
@@ -26,6 +32,7 @@ const config = [
   ({ ...shared,
     ...{
       output: {
+        ...shared.output,
         file: "dist/observable.es.js",
         format: "es",
       },
@@ -33,6 +40,7 @@ const config = [
   ({ ...shared,
     ...{
       output: {
+        ...shared.output,
         file: "dist/observable.iife.js",
         format: "iife",
         name: "T",
