@@ -1,6 +1,6 @@
 {
   "name": "@umbrellio/observable",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Observable library",
   "repository": "git@github.com:umbrellio/observable.git",
   "author": "Aleksei Bespalov <nulldefiner@gmail.com>",
@@ -16,35 +16,34 @@
     "test:coverage": "jest --coverage"
   },
   "devDependencies": {
-    "@babel/cli": "^7.14.8",
-    "@babel/core": "^7.14.8",
-    "@babel/plugin-proposal-class-properties": "^7.14.5",
-    "@babel/plugin-transform-react-jsx": "^7.14.5",
-    "@babel/preset-env": "^7.14.8",
-    "@rollup/plugin-babel": "^5.3.0",
-    "@rollup/plugin-node-resolve": "^13.0.4",
-    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.3",
-    "babel-eslint": "^10.1.0",
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.18.2",
+    "@babel/eslint-parser": "^7.18.2",
+    "@babel/plugin-proposal-class-properties": "^7.17.12",
+    "@babel/plugin-transform-react-jsx": "^7.17.12",
+    "@babel/preset-env": "^7.18.2",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.7",
+    "babel-jest": "^28.1.1",
     "coveralls": "^3.1.1",
-    "eslint": "^7.31.0",
+    "enzyme": "^3.11.0",
+    "eslint": "^8.17.0",
     "eslint-config-umbrellio": "^5.0.1",
-    "eslint-plugin-import": "^2.23.4",
-    "eslint-plugin-jest": "^24.4.0",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^26.5.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prefer-object-spread": "^1.2.1",
-    "eslint-plugin-promise": "^5.1.0",
-    "eslint-plugin-react": "^7.24.0",
-    "jest": "^27.0.6",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.30.0",
+    "jest": "^28.1.1",
+    "jest-environment-jsdom": "^28.1.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "rollup": "^2.55.1"
+    "rollup": "^2.75.6"
   },
   "peerDependencies": {
-    "react": "^16.13.1"
-  },
-  "dependencies": {
-    "babel-jest": "^27.0.6",
-    "enzyme": "^3.11.0"
+    "react": "^16.13.1 || ^17"
   }
 }

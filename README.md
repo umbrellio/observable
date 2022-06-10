@@ -92,7 +92,7 @@ class List extends React.Component {
   render () {
     const { categories } = this.props
 
-    return <ul>{categories.map(item => <li>{item}</li>)}</ul>
+    return <ul>{categories.map(item => <li key={item}>{item}</li>)}</ul>
   }
 }
 ```
@@ -119,7 +119,7 @@ class List extends React.Component {
     return (
       <React.Fragment>
         <h2>{user.name}</h2>
-        <ul>{categories.map(item => <li>{item}</li>)}</ul>
+        <ul>{categories.map(item => <li key={item}>{item}</li>)}</ul>
       </React.Fragment>
     )
   }
@@ -140,7 +140,7 @@ import { useStore } from "@umbrellio/observable"
 const List = () => {
   const categories = useStore(listStore, { map: state => state.list })
 
-  return <ul>{categories.map(item => <li>{item}</li>)}</ul>
+  return <ul>{categories.map(item => <li key={item}>{item}</li>)}</ul>
 }
 ```
 
