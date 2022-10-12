@@ -1,4 +1,6 @@
 import observer from "./observer"
+
+// eslint-disable-next-line no-unused-vars
 import { Observable } from "./types"
 
 /**

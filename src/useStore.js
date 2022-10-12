@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react"
+
+// eslint-disable-next-line no-unused-vars
 import { StoreReactHook } from "./types"
 
 /**

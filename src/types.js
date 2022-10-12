@@ -11,7 +11,7 @@
 /**
  * @template T
  * @callback Observer
- * @param {Store<T>} store 
+ * @param {Store<T>} store
  * @param {ObserverOptions<T>} options
  * @returns {ComponentWrapper}
  */
