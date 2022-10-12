@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react"
 
 // eslint-disable-next-line no-unused-vars
-import { StoreReactHook } from "./types"
+import { Store, StoreReactHookOptions } from "./types"
 
 /**
  * @template T
- * @type {StoreReactHook<T>}
+ * @param {Store<T>} store
+ * @param {StoreReactHookOptions<T>} options
+ * @returns {T | any}
  */
 const useStore = (store, { map } = {}) => {
   const [state, setState] = useState(store.getState())

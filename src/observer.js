@@ -1,11 +1,13 @@
 import React from "react"
 
 // eslint-disable-next-line no-unused-vars
-import { Observer } from "./types"
+import { Store, ObserverOptions, ComponentWrapper } from "./types"
 
 /**
  * @template T
- * @type {Observer<T>}
+ * @param {Store<T>} store
+ * @param {ObserverOptions<T>} options
+ * @returns {ComponentWrapper}
  */
 const observer = (store, { key, map }) => WrappedComponent => {
   return class extends React.Component {

@@ -10,23 +10,8 @@
 
 /**
  * @template T
- * @callback Observer
- * @param {Store<T>} store
- * @param {ObserverOptions<T>} options
- * @returns {ComponentWrapper}
- */
-
-/**
- * @template T1, T2, T3, T4, T5
- * @callback MultipleObserver
- * @param {Array<StoreConfig<T1, T2, T3, T4, T5>>} configs
- * @returns {ComponentWrapper}
- */
-
-/**
- * @template T1, T2, T3, T4, T5
  * @typedef StoreConfig
- * @property {Store<T1 | T2 | T3 | T4 | T5>} store
+ * @property {Store<T>} store
  * @property {string} key
  */
 
@@ -38,24 +23,10 @@
  */
 
 /**
+ * @template T
  * @callback ComponentWrapper
- * @param {React.Component | React.PureComponent | React.FC} component
- * @returns {React.Component}
- */
-
-/**
- * @template T
- * @callback Observable
- * @param {T} initial
- * @returns {Store<T>}
- */
-
-/**
- * @template T
- * @callback StoreReactHook
- * @param {Store<T>} store
- * @param {StoreReactHookOptions<T>} options
- * @returns {T | any}
+ * @param {React.Component<T> | React.PureComponent<T> | React.FC<T>} component
+ * @returns {React.Component<T>}
  */
 
 /**

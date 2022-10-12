@@ -1,17 +1,13 @@
 import React from "react"
 
 // eslint-disable-next-line no-unused-vars
-import { MultipleObserver, StoreConfig } from "./types"
+import { ComponentWrapper, StoreConfig } from "./types"
 
 /**
- * @template T1, T2, T3, T4, T5
- * @type {MultipleObserver<T1, T2, T3, T4, T5>}
+ * @param {StoreConfig<any>[]} stores
+ * @returns {ComponentWrapper<any>}
  */
 const multipleObserver = stores => WrappedComponent => {
-  /**
-   * @template T1, T2, T3, T4, T5
-   * @param {StoreConfig<T1, T2, T3, T4, T5>[]} stores
-   */
   const reduceStates = stores => {
     return stores.reduce((acc, { key, store }) => ({ ...acc, [key]: { ...store.getState() } }), {})
   }
