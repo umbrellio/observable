@@ -1,5 +1,10 @@
 import observer from "./observer"
+import { Observable } from "./types"
 
+/**
+ * @template T
+ * @type {Observable<T}
+ */
 const observable = initial => {
   let store = { ...initial }
 

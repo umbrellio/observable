@@ -1,5 +1,11 @@
 import React from "react"
 
+import { Observer } from "./types"
+
+/**
+ * @template T
+ * @type {Observer<T>}
+ */
 const observer = (store, { key, map }) => WrappedComponent => {
   return class extends React.Component {
     static displayName = `${key} State Observer`
