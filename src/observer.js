@@ -1,14 +1,5 @@
 import React from "react"
 
-// eslint-disable-next-line no-unused-vars
-import { Store, ObserverOptions, ComponentWrapper } from "./types"
-
-/**
- * @template T
- * @param {Store<T>} store
- * @param {ObserverOptions<T>} options
- * @returns {ComponentWrapper}
- */
 const observer = (store, { key, map }) => WrappedComponent => {
   return class extends React.Component {
     static displayName = `${key} State Observer`
@@ -32,7 +23,7 @@ const observer = (store, { key, map }) => WrappedComponent => {
 
     render () {
       const state = { [key]: map ? map(this.state) : this.state }
-      return <WrappedComponent {...this.props} {...state} />
+      return WrappedComponent({ ...this.props, ...state })
     }
   }
 }

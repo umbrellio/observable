@@ -1,13 +1,5 @@
 import observer from "./observer"
 
-// eslint-disable-next-line no-unused-vars
-import { Store } from "./types"
-
-/**
- * @template T
- * @param {T} initial
- * @returns {Store<T>}
- */
 const observable = initial => {
   let store = { ...initial }
 
