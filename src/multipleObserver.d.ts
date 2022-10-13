@@ -1,10 +1,11 @@
 import { Component } from "react"
 
-import { Store, GenericReactComponent } from "./common"
+import { Store, GenericReactComponent, MapFn } from "./common"
 
 declare interface StoreConfig<T> {
   store: Store<T>
   key: string
+  map: MapFn<T>
 }
 
 declare type Wrapper<T, S, SS> = (
