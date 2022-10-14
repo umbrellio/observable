@@ -1,18 +1,19 @@
 import { Component } from "react"
 
-import { Store, GenericReactComponent, MapFn } from "./common"
+import { Store, ReactComponent, MapFn } from "./common"
 
 declare interface StoreConfig<T> {
   store: Store<T>
   key: string
-  map: MapFn<T>
+  map?: MapFn<T>
 }
 
-declare type Wrapper<T, S, SS> = (
-  (component: GenericReactComponent<T, S, SS>) => Component<T, S, SS>
+declare type Wrapper<Props, State, SnapShot> = (
+  (component: ReactComponent<Props, State, SnapShot>) => Component<Props, State, SnapShot>
 )
 
-declare function multipleObserver<T, S, SS> (stores: [StoreConfig<T>]): Wrapper<T, S, SS>
+declare function multipleObserver<State, ComponentState, ComponentSnapShot>
+  (stores: [StoreConfig<State>]): Wrapper<State, ComponentState, ComponentSnapShot>
 
 declare function multipleObserver<T1, T2, S, SS>
   (stores: [StoreConfig<T1>, StoreConfig<T2>]): Wrapper<T1 & T2, S, SS>

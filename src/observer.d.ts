@@ -1,5 +1,7 @@
 import { ComponentWrapper, ObserverOptions, Store } from "./common"
 
-declare function observer<T, S, SS> (store: Store<T>, options?: ObserverOptions<T>): ComponentWrapper<T, S, SS>
+declare function observer<State, ComponentState, ComponentSnapShot>
+  (store: Store<State>, options?: ObserverOptions<State>):
+    ComponentWrapper<State, ComponentState, ComponentSnapShot>
 
 export default observer

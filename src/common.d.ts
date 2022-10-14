@@ -6,19 +6,20 @@ export declare type UnsubscribeFn = () => void
 
 export declare type MapFn<T> = (data: T) => T | any
 
-export declare type GenericReactComponent<T, S, SS> = (
-  Component<T, S, SS> | PureComponent<T, S, SS> | FC<T>
+export declare type ReactComponent<Props, State, SnapShot> = (
+  Component<Props, State, SnapShot> | PureComponent<Props, State, SnapShot> | FC<Props>
 )
 
-export declare type ComponentWrapper<T, S, SS> = (
-  (component: GenericReactComponent<T, S, SS>) => Component<T>
+export declare type ComponentWrapper<Props, State, SnapShot> = (
+  (component: ReactComponent<Props, State, SnapShot>) => Component<Props, State, SnapShot>
 )
 
-export declare interface Store<T> {
-  getState(): T
-  set(data: Partial<T>): void
-  observer<S, SS>(options: ObserverOptions<T>): Observer<T, S, SS>
-  subscribe(sub: SubscribeFn<T>): UnsubscribeFn
+export declare interface Store<State> {
+  getState(): State
+  set(data: Partial<State>): void
+  observer<ComponentState, ComponentSnapShot>
+    (options: ObserverOptions<State>): Observer<State, ComponentState, ComponentSnapShot>
+  subscribe(sub: SubscribeFn<State>): UnsubscribeFn
   reset(): void
 }
 
@@ -27,6 +28,7 @@ export declare interface ObserverOptions<T> {
   map: MapFn<T>
 }
 
-export declare interface Observer<T, S, SS> {
-  (store: Store<T>, options?: ObserverOptions<T>): ComponentWrapper<T, S, SS>
+export declare interface Observer<State, ComponentState, ComponentSnapShot> {
+  (store: Store<State>, options?: ObserverOptions<State>):
+    ComponentWrapper<State, ComponentState, ComponentSnapShot>
 }
