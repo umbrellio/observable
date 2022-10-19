@@ -1,5 +1,6 @@
 import { babel } from "@rollup/plugin-babel"
 import { nodeResolve } from "@rollup/plugin-node-resolve"
+import dts from "rollup-plugin-dts"
 
 const shared = {
   input: "src/index.js",
@@ -46,6 +47,14 @@ const config = [
         name: "T",
       },
     } }),
+  {
+    input: "src/index.js",
+    plugins: [dts()],
+    output: {
+      file: "dist/observable.d.ts",
+      format: "es",
+    },
+  },
 ]
 
 export default config
