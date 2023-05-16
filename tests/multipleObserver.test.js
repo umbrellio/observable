@@ -8,23 +8,53 @@ const TestComponent = props => {
   return <pre dangerouslySetInnerHTML={{ __html: JSON.stringify(props) }} />
 }
 
-const shallowComponent = observer => {
-  const ObservedComponent = observer(TestComponent)
+class ClassTestComponent extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      count: 0,
+    }
+  }
+
+  handleClick = () => {
+    this.setState(prev => {
+      const next = prev === this.props.maxCount ? prev : prev + 1
+      return { count: next }
+    })
+  }
+
+  render () {
+    return (
+      <div>
+        <button onClick={this.handleClick}>+</button>
+        <span>{`Count: ${this.state.count}`}</span>
+        <span>{`Max: ${this.props.count.max}`}</span>
+        <span>{`Value: ${this.props.info.key}`}</span>
+      </div>
+    )
+  }
+}
+
+const shallowComponent = (observer, component) => {
+  const ObservedComponent = observer(component)
   return Enzyme.shallow(<ObservedComponent />)
 }
 
 let store = null
 let anotherStore = null
+let countStore = null
 
 beforeAll(() => {
   Enzyme.configure({ adapter: new Adapter() })
   store = observable({ key: "initial value" })
   anotherStore = observable({ anotherKey: "another initial value" })
+  countStore = observable({ max: 10 })
 })
 
 beforeEach(() => {
   store.reset()
   anotherStore.reset()
+  countStore.reset()
 })
 
 it("wraps a component with the multiple observable", () => {
@@ -32,7 +62,7 @@ it("wraps a component with the multiple observable", () => {
     { store, key: "value" },
     { store: anotherStore, key: "anotherValue" },
   ])
-  const component = shallowComponent(observer)
+  const component = shallowComponent(observer, TestComponent)
   expect(component.html()).toEqual(
     "<pre>" +
     "{\"value\":{\"key\":\"initial value\"}," +
@@ -56,7 +86,7 @@ it("wraps a component with the multiple observable (mapped)", () => {
     { store, key: "value", map: state => state.key },
     { store: anotherStore, key: "anotherValue", map: state => state.anotherKey },
   ])
-  const component = shallowComponent(observer)
+  const component = shallowComponent(observer, TestComponent)
   expect(component.html()).toEqual(
     "<pre>" +
     "{\"value\":\"initial value\"," +
@@ -71,6 +101,34 @@ it("wraps a component with the multiple observable (mapped)", () => {
     "{\"value\":\"new value\"," +
     "\"anotherValue\":\"another new value\"}" +
     "</pre>",
+  )
+  component.unmount()
+})
+
+it("wraps a class component with the multiple observable", () => {
+  const observer = multipleObserver([
+    { store, key: "info" },
+    { store: countStore, key: "count" },
+  ])
+  const component = shallowComponent(observer, ClassTestComponent)
+  expect(component.html()).toEqual(
+    "<div>" +
+    "<button>+</button>" +
+    "<span>Count: 0</span>" +
+    "<span>Max: 10</span>" +
+    "<span>Value: initial value</span>" +
+    "</div>",
+  )
+
+  store.set({ key: "new value" })
+  countStore.set({ max: 20 })
+  expect(component.html()).toEqual(
+    "<div>" +
+    "<button>+</button>" +
+    "<span>Count: 0</span>" +
+    "<span>Max: 20</span>" +
+    "<span>Value: new value</span>" +
+    "</div>",
   )
   component.unmount()
 })

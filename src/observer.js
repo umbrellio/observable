@@ -23,7 +23,7 @@ const observer = (store, { key, map }) => WrappedComponent => {
 
     render () {
       const state = { [key]: map ? map(this.state) : this.state }
-      return WrappedComponent({ ...this.props, ...state })
+      return <WrappedComponent {...this.props} {...state} />
     }
   }
 }
