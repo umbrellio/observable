@@ -33,7 +33,7 @@ const multipleObserver = stores => WrappedComponent => {
         }
       }, {})
 
-      return WrappedComponent({ ...this.props, ...state })
+      return <WrappedComponent {...this.props} {...state} />
     }
   }
 }
