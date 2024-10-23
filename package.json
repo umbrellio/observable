@@ -1,6 +1,6 @@
 {
   "name": "@umbrellio/observable",
-  "version": "1.4.3",
+  "version": "2.0.0",
   "description": "Observable library",
   "repository": "git@github.com:umbrellio/observable.git",
   "author": "Aleksei Bespalov <nulldefiner@gmail.com>",
