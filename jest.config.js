@@ -20,4 +20,7 @@ module.exports = {
   testMatch: [
     "**/tests/**/*.test.js",
   ],
+  setupFilesAfterEnv: [
+    "./jest.setup.js",
+  ],
 }

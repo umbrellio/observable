@@ -1,6 +1,6 @@
 {
   "name": "@umbrellio/observable",
-  "version": "1.4.3",
+  "version": "2.0.0",
   "description": "Observable library",
   "repository": "git@github.com:umbrellio/observable.git",
   "author": "Aleksei Bespalov <nulldefiner@gmail.com>",
@@ -23,9 +23,9 @@
     "@babel/plugin-proposal-class-properties": "^7.17.12",
     "@babel/plugin-transform-react-jsx": "^7.17.12",
     "@babel/preset-env": "^7.18.2",
+    "@cfaester/enzyme-adapter-react-18": "^0.8.0",
     "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-node-resolve": "^13.3.0",
-    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.7",
     "babel-jest": "^28.1.1",
     "coveralls": "^3.1.1",
     "enzyme": "^3.11.0",
@@ -40,13 +40,13 @@
     "eslint-plugin-react": "^7.30.0",
     "jest": "^28.1.1",
     "jest-environment-jsdom": "^28.1.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "rollup": "^2.75.6",
     "rollup-plugin-dts": "^4.2.3",
     "typescript": "^4.8.4"
   },
   "peerDependencies": {
-    "react": "^16.13.1 || ^17"
+    "react": "^17 || ^18"
   }
 }
